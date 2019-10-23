@@ -16,6 +16,5 @@ const result = cullCSVLines(myCSV, '\n', reduceByOneOutOfEveryXLines);
 
 fs.writeFile(newFilePath, result, (err) => {
   if (err) throw err;
-  console.log('data ^^^\n');
   console.log(`The file has been saved to ${newFilePath}`);
 });
