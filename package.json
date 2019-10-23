@@ -1,0 +1,8 @@
+{
+  "name": "cullCSVLines",
+  "version": "1.0.0",
+  "main": "cullCSVLines.js",
+  "author": "Emily Platzer <emilyplatzer@gmail.com>",
+  "license": "MIT",
+  "private": true
+}
