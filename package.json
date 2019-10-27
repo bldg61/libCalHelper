@@ -1,8 +1,11 @@
 {
-  "name": "cullCSVLines",
+  "name": "libCalStatMunger",
   "version": "1.0.0",
-  "main": "cullCSVLines.js",
+  "main": "libCalStatMunger.js",
   "author": "Emily Platzer <emilyplatzer@gmail.com>",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "promised-csv": "^1.0.1"
+  }
 }
