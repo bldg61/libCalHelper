@@ -1,7 +1,7 @@
 {
-  "name": "libCalStatMunger",
+  "name": "libCalHelpers",
   "version": "1.0.0",
-  "main": "libCalStatMunger.js",
+  "main": "script.js",
   "author": "Emily Platzer <emilyplatzer@gmail.com>",
   "license": "MIT",
   "private": true,

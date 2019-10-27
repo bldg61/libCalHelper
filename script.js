@@ -1,4 +1,4 @@
-const libCalStatMunger = require('./libCalStatMunger');
+const libCalStatMunger = require('./lib/libCalStatMunger');
 
 const filePath = './secretCSV/sample.csv';
 
