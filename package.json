@@ -5,7 +5,13 @@
   "author": "Emily Platzer <emilyplatzer@gmail.com>",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "test": "jasmine"
+  },
   "dependencies": {
     "promised-csv": "^1.0.1"
+  },
+  "devDependencies": {
+    "jasmine": "^3.5.0"
   }
 }
