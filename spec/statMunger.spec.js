@@ -30,5 +30,7 @@ describe('Stat Munger', () => {
 
     expect(returnCSV).toBe(expected)
     expect(savedCSV).toBe(expected)
+
+    await fs.unlinkSync('./spec/fixtures/stats/sampleTOCNC-munged.csv')
   })
 })
