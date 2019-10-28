@@ -47,4 +47,83 @@ describe('Stat Munger', () => {
 
     await fs.unlinkSync('./spec/fixtures/stats/sampleTOLaser-munged.csv')
   })
+
+  it('updates `Laser Cutting Guided Access` correctly', async () => {
+    const filePath = './spec/fixtures/stats/sampleGALaser.csv'
+
+    const returnCSV = await statMunger(filePath)
+    const savedCSV = await fs.readFileSync('./spec/fixtures/stats/sampleGALaser-munged.csv', 'utf8')
+    const expected = await fs.readFileSync('./spec/fixtures/stats/sampleGALaser-expected.csv', 'utf8')
+
+    expect(returnCSV).toBe(expected)
+    expect(savedCSV).toBe(expected)
+
+    await fs.unlinkSync('./spec/fixtures/stats/sampleGALaser-munged.csv')
+  })
+
+  it('updates `CNC Guided Access` correctly', async () => {
+    const filePath = './spec/fixtures/stats/sampleGACNC.csv'
+
+    const returnCSV = await statMunger(filePath)
+    const savedCSV = await fs.readFileSync('./spec/fixtures/stats/sampleGACNC-munged.csv', 'utf8')
+    const expected = await fs.readFileSync('./spec/fixtures/stats/sampleGACNC-expected.csv', 'utf8')
+
+    expect(returnCSV).toBe(expected)
+    expect(savedCSV).toBe(expected)
+
+    await fs.unlinkSync('./spec/fixtures/stats/sampleGACNC-munged.csv')
+  })
+
+  xit('updates `Open Studio & Limited Shop Access` correctly', async () => {
+
+    const filePath = './spec/fixtures/stats/sampleOpenStudio.csv'
+
+    const returnCSV = await statMunger(filePath)
+    const savedCSV = await fs.readFileSync('./spec/fixtures/stats/sampleOpenStudio-munged.csv', 'utf8')
+    const expected = await fs.readFileSync('./spec/fixtures/stats/sampleOpenStudio-expected.csv', 'utf8')
+
+    expect(returnCSV).toBe(expected)
+    expect(savedCSV).toBe(expected)
+
+    await fs.unlinkSync('./spec/fixtures/stats/sampleOpenStudio-munged.csv')
+  })
+
+  it('updates `Sewing Rebellion Workshop` correctly', async () => {
+    const filePath = './spec/fixtures/stats/sampleSewRebellion.csv'
+
+    const returnCSV = await statMunger(filePath)
+    const savedCSV = await fs.readFileSync('./spec/fixtures/stats/sampleSewRebellion-munged.csv', 'utf8')
+    const expected = await fs.readFileSync('./spec/fixtures/stats/sampleSewRebellion-expected.csv', 'utf8')
+
+    expect(returnCSV).toBe(expected)
+    expect(savedCSV).toBe(expected)
+
+    await fs.unlinkSync('./spec/fixtures/stats/sampleSewRebellion-munged.csv')
+  })
+
+  it('updates `Shop 61: Guided Access` correctly', async () => {
+    const filePath = './spec/fixtures/stats/sampleGAShop.csv'
+
+    const returnCSV = await statMunger(filePath)
+    const savedCSV = await fs.readFileSync('./spec/fixtures/stats/sampleGAShop-munged.csv', 'utf8')
+    const expected = await fs.readFileSync('./spec/fixtures/stats/sampleGAShop-expected.csv', 'utf8')
+
+    expect(returnCSV).toBe(expected)
+    expect(savedCSV).toBe(expected)
+
+    await fs.unlinkSync('./spec/fixtures/stats/sampleGAShop-munged.csv')
+  })
+
+  it('updates other events correctly', async () => {
+    const filePath = './spec/fixtures/stats/sampleOther.csv'
+
+    const returnCSV = await statMunger(filePath)
+    const savedCSV = await fs.readFileSync('./spec/fixtures/stats/sampleOther-munged.csv', 'utf8')
+    const expected = await fs.readFileSync('./spec/fixtures/stats/sampleOther-expected.csv', 'utf8')
+
+    expect(returnCSV).toBe(expected)
+    expect(savedCSV).toBe(expected)
+
+    await fs.unlinkSync('./spec/fixtures/stats/sampleOther-munged.csv')
+  })
 })
