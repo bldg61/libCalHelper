@@ -15,7 +15,7 @@ describe('Stat Munger', () => {
     const attendanceIndex = headers.indexOf('Actual Attendance')
 
     const attendance = returnCSV.split('\n')[1].split('", "')[attendanceIndex];
-    expect(attendance).toBeGreaterThan(50)
+    expect(attendance).toBeGreaterThanOrEqual(50)
     expect(attendance).toBeLessThan(70)
 
     const returnWithoutAttendance =

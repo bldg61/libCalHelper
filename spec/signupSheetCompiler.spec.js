@@ -30,4 +30,19 @@ describe('Signup Sheet Compiler', () => {
 
     await fs.unlinkSync('./spec/fixtures/signups/GALasersTwoTime-compiled.csv')
   })
+  it('throws if the two sheets dates are different', async () => {
+    const filePaths = [
+      './spec/fixtures/signups/GALasersOneTime.csv',
+      './spec/fixtures/signups/GALasersTomorrow.csv',
+    ]
+
+    try {
+      const whatDis = await signupSheetCompiler(filePaths, 'GALasersDiffDates')
+      console.log("whatDis", whatDis);
+    } catch (error) {
+      expect(error).toEqual(new Error('OH DEAR THESE SHEETS HAVE DIFFERENT DATES 🤦🏽‍♀️'))
+    }
+  })
+  it('throws if the two sheets titles are different')
+  it('logs WARNING if the date is not for today')
 })
