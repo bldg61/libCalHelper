@@ -1,3 +1,4 @@
+const fs = require('fs');
 const statMunger = require('../lib/statMunger');
 
 describe('Stat Munger', () => {
@@ -19,5 +20,15 @@ describe('Stat Munger', () => {
         expect(error).toEqual(new Error('Oh dear, an important header is missing... Check your CSV for the following headers:\n  Title\n  Categories.1\n  Categories.2\n  Categories.3\n  Categories.4\n  Actual Attendance\n  Seats'))
       }
     })
+  })
+  it('updates `Tool Orientation: Shopbot CNC` correctly', async () => {
+    const filePath = './spec/fixtures/stats/sampleTOCNC.csv'
+
+    const returnCSV = await statMunger(filePath)
+    const savedCSV = await fs.readFileSync('./spec/fixtures/stats/sampleTOCNC-munged.csv', 'utf8')
+    const expected = await fs.readFileSync('./spec/fixtures/stats/sampleTOCNC-expected.csv', 'utf8')
+
+    expect(returnCSV).toBe(expected)
+    expect(savedCSV).toBe(expected)
   })
 })
