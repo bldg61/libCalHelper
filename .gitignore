@@ -1,6 +1,7 @@
 node_modules
 secretCSV/**
 spec/fixtures/**/*munged*
+spec/fixtures/**/*compiled*
 
 !secretCSV/stats
 !**/.keep
