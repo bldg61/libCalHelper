@@ -1,3 +1,5 @@
 node_modules
-secretCSV/*
-!secretCSV/.keep
+secretCSV/**
+
+!secretCSV/stats
+!**/.keep

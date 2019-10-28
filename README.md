@@ -3,18 +3,18 @@
 ### TODOS
 
 * [ ] Signup lists are munged for printout
-* [ ] StatMuger - Categories are auto extracted from Category (LibCal direct download... do we need this?)
-* [ ] StatMuger - Headers for categories 1-4 are generated if they do not exist
+* [ ] StatMunger - Categories are auto extracted from Category (LibCal direct download... do we need this?)
+* [ ] StatMunger - Headers for categories 1-4 are generated if they do not exist
 
 ### Is LibCal making you super sads? Use this handy dandy tool to make your life a little less painful.
 
 ### BUT HOW
 1. Clone (or fork and clone if you want to remix)
-1. Add your super awesome LibCal csv file to the `./secretCSV/` directory
+1. Add your super awesome LibCal csv file to the appropriate `./secretCSV/` directory
 1. Open script.js and edit...
 
     ```
-    const filePath = './secretCSV/fileName.csv'; // change this fileName to your file name
+    const filePath = './secretCSV/stats/fileName.csv'; // change this file path to your file path
     ```
 
 1. From the command line from within the repo directory, run `$ node script.js`
@@ -32,7 +32,7 @@ This lil statMunger algo assumes MUCH about the formatting of your `csv`. PLEASE
     * 'Sewing Rebellion Workshop'
     * 'Shop 61: Guided Access'
     * OTHER:
-        * Will have minimal rules applied (see else statement)
+        * Will have the minimal rules applied (see else statement)
 * Categories.1
 * Categories.2
 * Categories.3
