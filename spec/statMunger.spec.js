@@ -2,24 +2,33 @@ const fs = require('fs');
 const statMunger = require('../lib/statMunger');
 
 describe('Stat Munger', () => {
-  it('throws if an important header is missing', () =>{
-    const statMungerFilePaths = [
-      './spec/fixtures/stats/missingAttendanceHeader.csv',
-      './spec/fixtures/stats/missingCategory1Header.csv',
-      './spec/fixtures/stats/missingCategory2Header.csv',
-      './spec/fixtures/stats/missingCategory3Header.csv',
-      './spec/fixtures/stats/missingCategory4Header.csv',
-      './spec/fixtures/stats/missingSeatsHeader.csv',
-      './spec/fixtures/stats/missingTitleHeader.csv',
-    ];
+  it('updates `Open Studio & Limited Shop Access` correctly', async () => {
+    const filePath = './spec/fixtures/stats/sampleOpenStudio.csv'
 
-    statMungerFilePaths.forEach(async filePath => {
-      try {
-        await statMunger(filePath);
-      } catch (error) {
-        expect(error).toEqual(new Error('Oh dear, an important header is missing... Check your CSV for the following headers:\n  Title\n  Categories.1\n  Categories.2\n  Categories.3\n  Categories.4\n  Actual Attendance\n  Seats'))
-      }
-    })
+    const returnCSV = await statMunger(filePath)
+    const savedCSV = await fs.readFileSync('./spec/fixtures/stats/sampleOpenStudio-munged.csv', 'utf8')
+    const expected = await fs.readFileSync('./spec/fixtures/stats/sampleOpenStudio-expected.csv', 'utf8')
+
+    expect(returnCSV).toBe(savedCSV)
+
+    const headers = returnCSV.split('\n')[0].split('", "')
+    const attendanceIndex = headers.indexOf('Actual Attendance')
+
+    const attendance = returnCSV.split('\n')[1].split('", "')[attendanceIndex];
+    expect(attendance).toBeGreaterThan(50)
+    expect(attendance).toBeLessThan(70)
+
+    const returnWithoutAttendance =
+      returnCSV.split('\n')[0] + '\n' +
+      returnCSV.split('\n')[1].split('", "').slice(0, attendanceIndex - 1).join(',') +
+      returnCSV.split('\n')[1].split('", "').slice(attendanceIndex + 1, expected.split('\n').length).join(',')
+    const expectedWithoutAttendance =
+      expected.split('\n')[0] + '\n' +
+      expected.split('\n')[1].split('", "').slice(0, attendanceIndex - 1).join(',') +
+      expected.split('\n')[1].split('", "').slice(attendanceIndex + 1, expected.split('\n').length).join(',')
+    expect(returnWithoutAttendance).toBe(expectedWithoutAttendance)
+
+    await fs.unlinkSync('./spec/fixtures/stats/sampleOpenStudio-munged.csv')
   })
 
   it('updates `Tool Orientation: Shopbot CNC` correctly', async () => {
@@ -74,20 +83,6 @@ describe('Stat Munger', () => {
     await fs.unlinkSync('./spec/fixtures/stats/sampleGACNC-munged.csv')
   })
 
-  xit('updates `Open Studio & Limited Shop Access` correctly', async () => {
-
-    const filePath = './spec/fixtures/stats/sampleOpenStudio.csv'
-
-    const returnCSV = await statMunger(filePath)
-    const savedCSV = await fs.readFileSync('./spec/fixtures/stats/sampleOpenStudio-munged.csv', 'utf8')
-    const expected = await fs.readFileSync('./spec/fixtures/stats/sampleOpenStudio-expected.csv', 'utf8')
-
-    expect(returnCSV).toBe(expected)
-    expect(savedCSV).toBe(expected)
-
-    await fs.unlinkSync('./spec/fixtures/stats/sampleOpenStudio-munged.csv')
-  })
-
   it('updates `Sewing Rebellion Workshop` correctly', async () => {
     const filePath = './spec/fixtures/stats/sampleSewRebellion.csv'
 
@@ -125,5 +120,25 @@ describe('Stat Munger', () => {
     expect(savedCSV).toBe(expected)
 
     await fs.unlinkSync('./spec/fixtures/stats/sampleOther-munged.csv')
+  })
+
+  it('throws if an important header is missing', () =>{
+    const statMungerFilePaths = [
+      './spec/fixtures/stats/missingAttendanceHeader.csv',
+      './spec/fixtures/stats/missingCategory1Header.csv',
+      './spec/fixtures/stats/missingCategory2Header.csv',
+      './spec/fixtures/stats/missingCategory3Header.csv',
+      './spec/fixtures/stats/missingCategory4Header.csv',
+      './spec/fixtures/stats/missingSeatsHeader.csv',
+      './spec/fixtures/stats/missingTitleHeader.csv',
+    ];
+
+    statMungerFilePaths.forEach(async filePath => {
+      try {
+        await statMunger(filePath);
+      } catch (error) {
+        expect(error).toEqual(new Error('Oh dear, an important header is missing... Check your CSV for the following headers:\n  Title\n  Categories.1\n  Categories.2\n  Categories.3\n  Categories.4\n  Actual Attendance\n  Seats'))
+      }
+    })
   })
 })
