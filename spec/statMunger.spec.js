@@ -21,6 +21,7 @@ describe('Stat Munger', () => {
       }
     })
   })
+
   it('updates `Tool Orientation: Shopbot CNC` correctly', async () => {
     const filePath = './spec/fixtures/stats/sampleTOCNC.csv'
 
@@ -32,5 +33,18 @@ describe('Stat Munger', () => {
     expect(savedCSV).toBe(expected)
 
     await fs.unlinkSync('./spec/fixtures/stats/sampleTOCNC-munged.csv')
+  })
+
+  it('updates `Tool Orientation: Laser Cutting` correctly', async () => {
+    const filePath = './spec/fixtures/stats/sampleTOLaser.csv'
+
+    const returnCSV = await statMunger(filePath)
+    const savedCSV = await fs.readFileSync('./spec/fixtures/stats/sampleTOLaser-munged.csv', 'utf8')
+    const expected = await fs.readFileSync('./spec/fixtures/stats/sampleTOLaser-expected.csv', 'utf8')
+
+    expect(returnCSV).toBe(expected)
+    expect(savedCSV).toBe(expected)
+
+    await fs.unlinkSync('./spec/fixtures/stats/sampleTOLaser-munged.csv')
   })
 })
