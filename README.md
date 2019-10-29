@@ -2,22 +2,24 @@
 
 ### TODOS
 
-* [ ] Signup lists are munged for printout
 * [ ] StatMunger - Categories are auto extracted from Category (LibCal direct download... do we need this?)
 * [ ] StatMunger - Headers for categories 1-4 are generated if they do not exist
+* [x] Signup lists are munged for printout
 
 ### Is LibCal making you super sads? Use this handy dandy tool to make your life a little less painful.
 
 ### BUT HOW
 1. Clone (or fork and clone if you want to remix)
-1. Add your super awesome LibCal csv file to the appropriate `./secretCSV/` directory
-1. Open script.js and edit...
+1. Add your super awesome LibCal csv file(s) to the appropriate `./secretCSV/` directory
+1. Printing out signup sheets? Edit the `signupSheetCompiler.js` with the names of your sheets and run one of the following. Your compiled sheet will be named as is in the file with the suffix `-compiled` in the same directory as the first file in the list. List should be in order of time earliest to latest.
+    * `$ yarn signups`
+    * `$ npm signups`
+    * `$ node signupSheetCompiler.js`
 
-    ```
-    const filePath = './secretCSV/stats/fileName.csv'; // change this file path to your file path
-    ```
-
-1. From the command line from within the repo directory, run `$ node script.js`
+1. Munging some stats? Edit the `statMunger.js` with the name of your stat file and run one of the following. Your munged file will be named and in the same directory as the original file with the suffix `-munged`.
+    * `$ yarn signups`
+    * `$ npm signups`
+    * `$ node statMunger.js`
 
 ### NOTE:
 

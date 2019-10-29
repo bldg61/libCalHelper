@@ -1,11 +1,12 @@
 {
   "name": "libCalHelpers",
   "version": "1.0.0",
-  "main": "script.js",
+  "main": "nope.js",
   "author": "Emily Platzer <emilyplatzer@gmail.com>",
   "license": "MIT",
   "private": true,
   "scripts": {
+    "stats": "node statMunger.js",
     "signups": "node signupSheetCompiler.js",
     "test": "jasmine"
   },
