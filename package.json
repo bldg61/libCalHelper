@@ -6,6 +6,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "signups": "node signupSheetCompiler.js",
     "test": "jasmine"
   },
   "dependencies": {
