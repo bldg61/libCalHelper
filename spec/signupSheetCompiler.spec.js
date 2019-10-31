@@ -12,6 +12,24 @@ describe('Signup Sheet Compiler', () => {
     jasmine.clock().uninstall();
   })
 
+  it('generates a generalized signup sheet from four signup sheets', async () => {
+    const filePaths = [
+      './spec/fixtures/signups/GAShopOne.csv',
+      './spec/fixtures/signups/GACNCOne.csv',
+      './spec/fixtures/signups/GAShopTwo.csv',
+      './spec/fixtures/signups/GACNCTwo.csv',
+    ]
+
+    const returnedSheet = await signupSheetCompiler(filePaths, 'GAShopAndCNC')
+    const savedSheet = await fs.readFileSync('./spec/fixtures/signups/GAShopAndCNC-compiled.csv', 'utf8')
+    const expected = await fs.readFileSync('./spec/fixtures/signups/GAShopAndCNC-expected.csv', 'utf8')
+
+    expect(returnedSheet).toBe(expected)
+    expect(savedSheet).toBe(expected)
+
+    await fs.unlinkSync('./spec/fixtures/signups/GAShopAndCNC-compiled.csv')
+  })
+
   it('generates a Laser Guided Access sheet from one signup sheet', async () => {
     const filePath = './spec/fixtures/signups/GALasersOneTime.csv'
 
