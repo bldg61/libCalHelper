@@ -2,10 +2,11 @@
 
 ### TODOS
 
-* [ ] signupSheetCompiler - for not lasers (no need for special messages)
 * [ ] StatMunger - Categories are auto extracted from Category (LibCal direct download... do we need this?)
 * [ ] StatMunger - Headers for categories 1-4 are generated if they do not exist
-* [x] Signup lists are munged for printout
+* [x] signupSheetCompiler - autoselects files that are in a directory (typing?? gross.)
+* [x] signupSheetCompiler - for not lasers (no need for special messages)
+* [x] signupSheetCompiler - Signup lists are munged for printout
 
 ### Is LibCal making you super sads? Use this handy dandy tool to make your life a little less painful.
 
