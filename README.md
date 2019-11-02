@@ -12,7 +12,7 @@
 ### BUT HOW
 1. Clone (or fork and clone if you want to remix)
 1. Add your super awesome LibCal csv file(s) to the appropriate `./secretCSV/` directory
-1. Printing out signup sheets? Edit the `signupSheetCompiler.js` with the names of your sheets and run one of the following. Your compiled sheet will be named as is in the file with the suffix `-compiled` in the same directory as the first file in the list. List should be in order of time earliest to latest.
+1. Printing out signup sheets? Check the `signupSheetCompiler.js` to verify location of files and name of output file. List will print in order of file names.
     * `$ yarn signups`
     * `$ npm signups`
     * `$ node signupSheetCompiler.js`
