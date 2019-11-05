@@ -2,17 +2,18 @@
 
 ### TODOS
 
-* [ ] signupSheetCompiler - for not lasers (no need for special messages)
 * [ ] StatMunger - Categories are auto extracted from Category (LibCal direct download... do we need this?)
 * [ ] StatMunger - Headers for categories 1-4 are generated if they do not exist
-* [x] Signup lists are munged for printout
+* [x] signupSheetCompiler - autoselects files that are in a directory (typing?? gross.)
+* [x] signupSheetCompiler - for not lasers (no need for special messages)
+* [x] signupSheetCompiler - Signup lists are munged for printout
 
 ### Is LibCal making you super sads? Use this handy dandy tool to make your life a little less painful.
 
 ### BUT HOW
 1. Clone (or fork and clone if you want to remix)
 1. Add your super awesome LibCal csv file(s) to the appropriate `./secretCSV/` directory
-1. Printing out signup sheets? Edit the `signupSheetCompiler.js` with the names of your sheets and run one of the following. Your compiled sheet will be named as is in the file with the suffix `-compiled` in the same directory as the first file in the list. List should be in order of time earliest to latest.
+1. Printing out signup sheets? Check the `signupSheetCompiler.js` to verify location of files and name of output file. List will print in order of file names.
     * `$ yarn signups`
     * `$ npm signups`
     * `$ node signupSheetCompiler.js`
