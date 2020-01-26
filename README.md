@@ -18,7 +18,7 @@
     * `$ npm signups`
     * `$ node signupSheetCompiler.js`
 
-1. Munging some stats? Edit the `statMunger.js` with the name of your stat file and run one of the following. Your munged file will be named and in the same directory as the original file with the suffix `-munged`.
+1. Munging some stats? Edit the `statMunger.js` with the name of your stat file and run ONE of the following. Your munged file will be named and in the same directory as the original file with the suffix `-munged`.
     * `$ yarn signups`
     * `$ npm signups`
     * `$ node statMunger.js`
@@ -37,9 +37,5 @@ This lil statMunger algo assumes MUCH about the formatting of your `csv`. PLEASE
     * 'Shop 61: Guided Access'
     * OTHER:
         * Will have the minimal rules applied (see else statement)
-* Categories.1
-* Categories.2
-* Categories.3
-* Categories.4
 * Actual Attendance
 * Seats
