@@ -7,7 +7,6 @@
   "private": true,
   "scripts": {
     "stats": "node statMunger.js",
-    "signups": "node signupSheetCompiler.js",
     "test": "jasmine"
   },
   "dependencies": {
