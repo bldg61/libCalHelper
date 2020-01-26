@@ -1,2 +1,2 @@
-"Date", "Library", "Title", "Event Organizer", "Audiences", "Categories.1", "Categories.2", "Categories.4", "Categories.3", "Actual Attendance", "Seats", "Confirmed Registrations", "Waiting-List Registrations"
-"9/22/2019", "BLDG 61 Makerspace", "Tool Orientation: Laser Cutting", "Adam Watts", "Teens, Adult", "Classes & Activities", "Tool Orientation", "Laser Cutting", "STEAM", "25", "16", "16", "11"
+"Date", "Library", "Title", "Event Organizer", "Audiences", "Categories", "Actual Attendance", "Seats", "Confirmed Registrations", "Waiting-List Registrations", "Primary Category", "Secondary Category", "Tertiary Category", "Quaternary Category"
+"9/22/2019", "BLDG 61 Makerspace", "Tool Orientation: Laser Cutting", "Adam Watts", "Teens, Adult", "Classes & Activities, STEAM,, Tool Orientation", "30", "16", "16", "11", "Classes & Activities", "Tool Orientation", "STEAM", "Laser Cutting"
