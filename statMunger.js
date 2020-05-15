@@ -1,3 +1,3 @@
 const statMunger = require('./lib/statMunger');
-const statMungerFilePath = './secretCSV/stats/092019_B61.csv';
+const statMungerFilePath = './secretCSV/stats/filename.csv';
 statMunger(statMungerFilePath);
