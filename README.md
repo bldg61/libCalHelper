@@ -13,10 +13,18 @@
 ### BUT HOW
 1. Clone (or fork and clone if you want to remix)
 1. Add your super awesome LibCal csv file(s) to the appropriate `./secretCSV/` directory
-1. Printing out signup sheets? Check the `signupSheetCompiler.js` to verify location of files and name of output file. List will print in order of file names.
-    * `$ yarn signups`
-    * `$ npm signups`
-    * `$ node signupSheetCompiler.js`
+1. SIGNUP SHEET COMPILER IS DEPRECATED! We rolled this into the Wrangler.
+    * repo: [github.com/bldg61/libCalWrangler](https://github.com/bldg61/libCalWrangler)
+    * deployed: [bldg61cal.herokuapp.com/signupCompiler](http://bldg61cal.herokuapp.com/signupCompiler)
+
+    Previous README instructs below...
+
+    ```
+    Printing out signup sheets? Check the `signupSheetCompiler.js` to verify location of files and name of output file. List will print in order of file names.
+        * `$ yarn signups`
+        * `$ npm signups`
+        * `$ node signupSheetCompiler.js`
+    ```
 
 1. Munging some stats? Edit the `statMunger.js` with the name of your stat file and run one of the following. Your munged file will be named and in the same directory as the original file with the suffix `-munged`.
     * `$ yarn signups`
